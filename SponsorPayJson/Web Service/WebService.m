@@ -52,15 +52,20 @@
     }
 
 
--(NSString*)GetDataWithsuccess:(void (^)(RKObjectRequestOperation *, RKMappingResult *))successBlock failure:(void (^)(RKObjectRequestOperation *, NSError *))faultBlock
+-(void)GetDataWithsuccess:(void (^)(RKObjectRequestOperation *, RKMappingResult *))successBlock failure:(void (^)(RKObjectRequestOperation *, NSError *))faultBlock
 {
+    // build call path
     NSString *path = [self buildPath];
+    // init json and afhttpclient
     [self initObjectManagerWithPath:path];
+    // map response class
     [MappingManager mapForItems];
+    // actual call
     [self getRequestWithPath:path success:successBlock failure:faultBlock];
-    return path;
 }
 
+
+//can be called also in service caller class. But with static parameteres can be build here also
 -(NSString *)buildPath
 {
     NSString *currentTimestamp = [NSString stringWithFormat:@"%.0f", [[NSDate date] timeIntervalSince1970]];

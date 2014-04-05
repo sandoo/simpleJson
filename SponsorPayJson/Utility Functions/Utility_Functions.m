@@ -10,6 +10,8 @@
 
 @implementation Utility_Functions
 
+#pragma mark - Image Loader
+// Keeps objects in cache for further use
 +(void)loadImage:(NSString *)urlStr place:(UIImageView *)place
 {
     place.image = [UIImage imageNamed:@""];

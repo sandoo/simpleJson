@@ -36,6 +36,8 @@
     
     self.service = [[WebService alloc]init];
     
+    //Service call with blocks
+    
     [self.service GetDataWithsuccess:^(RKObjectRequestOperation *op, RKMappingResult *result) {
         
         _offers = [[NSMutableArray alloc]init];
@@ -47,11 +49,12 @@
             [indexes addObject:[NSIndexPath indexPathForRow:index inSection:0]];
             index++;
         }
-       
+        // table reloads with animation
         [self.tblOffers insertRowsAtIndexPaths:indexes withRowAnimation:UITableViewRowAnimationTop];
         
         
     } failure:^(RKObjectRequestOperation *op, NSError *error) {
+        //Fail case
         [_viewNoOffer setHidden:NO];
         
     }];

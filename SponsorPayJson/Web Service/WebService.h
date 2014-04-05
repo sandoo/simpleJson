@@ -11,5 +11,5 @@
 
 @interface WebService : NSObject
 {}
--(NSString*)GetDataWithsuccess:(void (^)(RKObjectRequestOperation *, RKMappingResult *))successBlock failure:(void (^)(RKObjectRequestOperation *, NSError *))faultBlock;
+-(void)GetDataWithsuccess:(void (^)(RKObjectRequestOperation *, RKMappingResult *))successBlock failure:(void (^)(RKObjectRequestOperation *, NSError *))faultBlock;
 @end

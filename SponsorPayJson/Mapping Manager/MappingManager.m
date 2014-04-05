@@ -10,7 +10,10 @@
 
 @implementation MappingManager
 
-
+/*
+ Calls before json calls takes place
+ mapps json represantation inti objects
+ */
 
 +(RKObjectMapping *)mapForItems
 {

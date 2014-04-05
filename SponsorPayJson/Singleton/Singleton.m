@@ -10,6 +10,7 @@
 
 @implementation Singleton
 
+//Simple shared instance to keep global data
 + (Singleton*)sharedInstance
 {
     static Singleton *instance = nil;
